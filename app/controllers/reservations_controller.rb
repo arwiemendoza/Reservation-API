@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
     reservation = guest.reservations.build @payload[:reservation_attributes]
 
     if guest.save && reservation.save
-      render json: { success: true, message: format(SUCCESSFUL_ACTION, item: 'Reservation', action: 'booked') }, status: :created
+      render json: { success: true, message: format(SUCCESSFUL_ACTION, item: 'Reservation', action: 'created') }, status: :created
     else
       render json: { success: false, error: { guest: guest.errors, reservation: reservation.errors } }, status: :unprocessable_entity
     end

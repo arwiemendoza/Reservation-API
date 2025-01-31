@@ -57,7 +57,7 @@ RSpec.describe ReservationsController, type: :controller do
 
         expect(response).to have_http_status(:created)
         expect(json_response[:success]).to be true
-        expect(json_response[:message]).to eq('Reservation was successfully booked')
+        expect(json_response[:message]).to eq('Reservation was successfully created')
       end
     end
 
