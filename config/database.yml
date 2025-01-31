@@ -2,9 +2,9 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: postgres_user
-  password: password
-  host: localhost
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
 
 development:
   <<: *default
@@ -16,7 +16,7 @@ test:
 
 production:
   <<: *default
-  database: local_main
-  username: postgres_user
-  password: password
-  host: localhost
+  database: reservation_api
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>]
+  host: <%= ENV['DATABASE_HOST'] %>
