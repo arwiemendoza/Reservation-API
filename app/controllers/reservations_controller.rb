@@ -11,7 +11,9 @@ class ReservationsController < ApplicationController
     reservation = guest.reservations.build @payload[:reservation_attributes]
 
     if guest.save && reservation.save
-      render json: { success: true, message: format(SUCCESSFUL_ACTION, item: 'Reservation', action: 'created') }, status: :created
+      render json: { success: true, message: format(SUCCESSFUL_ACTION, item: 'Reservation', action: 'created'), 
+                     data: { guest: GuestSerializer.new(guest), reservation: ReservationSerializer.new(reservation) }
+                   }, status: :created
     else
       render json: { success: false, error: { guest: guest.errors, reservation: reservation.errors } }, status: :unprocessable_entity
     end

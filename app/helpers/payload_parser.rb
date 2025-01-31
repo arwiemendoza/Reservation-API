@@ -40,7 +40,7 @@ module PayloadParser
       guest_attributes: {
         first_name: guest_params[:first_name],
         last_name: guest_params[:last_name],
-        phone: guest_params[:phone_numbers]&.first,
+        phone: guest_params[:phone],
       },
       reservation_attributes: {
         start_date: params[:start_date],
