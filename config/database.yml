@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: postgres_user
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: reservation_api
+
+test:
+  <<: *default
+  database: reservation_api_test
+
+production:
+  <<: *default
+  database: local_main
+  username: postgres_user
+  password: password
+  host: localhost
